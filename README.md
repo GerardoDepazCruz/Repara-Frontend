@@ -9,6 +9,15 @@
 
 ---
 
+## **Inciar el backend leugo del flujo diario**
+
+- **.\mvnw.cmd clean**
+- **.\mvnw.cmd compile**
+- **.\mvnw.cmd install -DskipTests**
+- **.\mvnw.cmd spring-boot:run**
+
+---
+
 ## **Flujo de Trabajo en Git**
 
 ### **GitHub Flow**
