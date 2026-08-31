@@ -1,70 +1,114 @@
-# Getting Started with Create React App
+# RePara-Backend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## **Tecnologías**
 
-## Available Scripts
+- **Spring Boot**
+- **React**
+- **MySQL**
+- **(luego agregamos la herramienta para tener apk)**
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## **Flujo de Trabajo en Git**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### **GitHub Flow**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Trabajamos con ramas para desarrollar funcionalidades sin afectar la rama `main`.
 
-### `npm test`
+Cada integrante trabaja en su propia rama y, al terminar una tarea, crea un **Pull Request (PR)** hacia `main`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+La rama `main` debe mantenerse estable.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## **Roles**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Líder del proyecto**
+- Administra el repositorio.
+- Revisa los Pull Requests.
+- Aprueba los cambios.
+- Realiza el Merge hacia `main`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Integrantes**
+- Trabajan en su propia rama.
+- Desarrollan las tareas asignadas.
+- Realizan commits.
+- Suben sus cambios.
+- Crean Pull Requests.
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## **1. Primera vez — Crear el repositorio**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Solo el creador del repositorio.**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+git init
+git remote add origin <url_del_repositorio>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+git add .
+git commit -m "proyecto base"
 
-## Learn More
+git branch -M main
+git push -u origin main
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## **2. Primera vez — Cada integrante**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Cada integrante, incluido el líder, realiza estos pasos una sola vez.**
 
-### Code Splitting
+```bash
+git clone <url_del_repositorio>
+cd <nombre_proyecto>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+git checkout -b <mi_rama>
+git push -u origin <mi_rama>
+```
 
-### Analyzing the Bundle Size
+## **3. Flujo diario — Integrantes**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+**Cada integrante trabaja únicamente en su propia rama.**
 
-### Making a Progressive Web App
+### **a. Actualizar la rama**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+git checkout <mi_rama>
+git pull origin main
+```
 
-### Advanced Configuration
+### **b. Desarrollar**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+( -- Realizar la tarea asignada y probar los cambios. -- ) <---- IMPORTANTE
 
-### Deployment
+### **c. Guardar y subir cambios**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+git add .
+git commit -m "agregar funcionalidad de login"
+git push origin <mi_rama>
+```
 
-### `npm run build` fails to minify
+## **4. Crear Pull Request — Integrantes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Cuando la tarea esté terminada:
+
+1. Ir al repositorio en GitHub.
+2. Seleccionar la rama personal.
+3. Crear un **Pull Request** hacia `main`.
+4. Describir brevemente los cambios.
+5. Asignar al líder para la revisión.
+
+> **Importante:** No realizar cambios directamente en `main`.
+
+## **5. Revisar Pull Request — Líder
+
+El líder debe:
+
+- Revisar los archivos modificados.
+- Verificar que la tarea esté correcta.
+- Probar la funcionalidad.
+- Revisar que no existan cambios innecesarios.
+
+**Si existen errores:** solicitar cambios al integrante.
+
+**Si todo está correcto:** aprobar el Pull Request y realizar el **Merge** hacia `main`.
