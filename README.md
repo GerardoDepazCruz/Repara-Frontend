@@ -11,10 +11,8 @@
 
 ## **Inciar el backend leugo del flujo diario**
 
-- **.\mvnw.cmd clean**
-- **.\mvnw.cmd compile**
-- **.\mvnw.cmd install -DskipTests**
-- **.\mvnw.cmd spring-boot:run**
+- **npm install (1 vez nomas)**
+- **npm start**
 
 ---
 
