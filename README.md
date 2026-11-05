@@ -1,5 +1,27 @@
 # RePara-Backend
 
+## **Ejecucion en una nueva computadora**
+
+Para crear el proyecto inicial
+```
+npm create vite@latest repara_frontend -- --template react
+```
+
+Para instalar todas las dependencias (Ejecutar uno por uno)
+```
+npm install react-router-dom axios
+npm install -D tailwindcss postcss autoprefixer
+npm install react-hot-toast lucide-react
+npm install @capacitor/core @capacitor/cli @capacitor/android
+npm install recharts
+npm install jspdf jspdf-autotable
+```
+
+Para levantar el servidor de desarrollo
+```
+npm run dev
+```
+
 ## **Tecnologías**
 
 - **Spring Boot**
