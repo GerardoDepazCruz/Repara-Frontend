@@ -1,11 +1,6 @@
-# RePara-Backend
+# RePara-Frontend
 
 ## **Ejecucion en una nueva computadora**
-
-Para crear el proyecto inicial
-```
-npm create vite@latest repara_frontend -- --template react
-```
 
 Para instalar todas las dependencias (Ejecutar uno por uno)
 ```
