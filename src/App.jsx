@@ -32,6 +32,8 @@ import { DetalleSolicitudTecnico } from './paginas/tecnico/DetalleSolicitudTecni
 import { ChatTrayecto } from './paginas/cliente/ChatTrayecto';
 import { CrearInforme } from './paginas/tecnico/CrearInforme';
 
+import { GestionTecnicos } from './paginas/admin/GestionTecnicos';
+
 function App() {
   const { cargando } = useAutenticacion();
 
@@ -79,6 +81,12 @@ function App() {
 <Route path="/cliente/solicitud/:id" element={
   <RutaProtegida rolesPermitidos={['CLIENTE', 'TECNICO']}>
     <Layout><DetalleSolicitud /></Layout>
+  </RutaProtegida>
+} />
+
+<Route path="/admin/tecnicos" element={
+  <RutaProtegida rolesPermitidos={['ADMIN']}>
+    <Layout><GestionTecnicos /></Layout>
   </RutaProtegida>
 } />
 
