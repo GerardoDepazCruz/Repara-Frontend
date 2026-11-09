@@ -61,9 +61,16 @@ export const ChatIA = ({ onSolicitudCreada }) => {
       </form>
       
       {/* Botón temporal para simular que la IA ya terminó de recolectar datos */}
-      <div className="p-2 bg-blue-50 text-center border-t border-blue-100">
-        <button onClick={onSolicitudCreada} className="text-xs text-blue-600 hover:underline">
-          (Simular que la IA terminó y crear la solicitud)
+      // En tu ChatIA.jsx, cambia el botón de simular por este:
+            <div className="p-3 bg-blue-50 text-center border-t border-blue-100">
+        <button onClick={() => {
+            // 🔥 BUSCAMOS EL ÚLTIMO MENSAJE DEL CLIENTE (no de la IA)
+            const ultimoMensajeCliente = [...mensajes].reverse().find(m => m.emisor === 'CLIENTE')?.texto;
+            
+            // Si el cliente escribió algo, usamos eso. Si no, un mensaje por defecto.
+            onSolicitudCreada(ultimoMensajeCliente || 'Problema reportado con el electrodoméstico');
+        }} className="text-sm font-bold text-repara-600 hover:text-repara-800 bg-white px-4 py-2 rounded-lg shadow-sm border border-repara-200">
+          ✅ Finalizar chat y generar resumen
         </button>
       </div>
     </div>

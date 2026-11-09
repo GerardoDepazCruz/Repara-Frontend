@@ -11,7 +11,6 @@ export const AutenticacionProveedor = ({ children }) => {
   const [cargando, setCargando] = useState(true);
 
   useEffect(() => {
-    // 🔥 Cambiado a sessionStorage para que sea independiente por pestaña
     const token = sessionStorage.getItem(TOKEN_KEY);
     const usuarioGuardado = sessionStorage.getItem(USUARIO_KEY);
     if (token && usuarioGuardado) {
@@ -29,7 +28,6 @@ export const AutenticacionProveedor = ({ children }) => {
     const respuesta = await autenticacionServicio.login(correo, contrasena);
     if (respuesta.exito) {
       const { token, ...datos } = respuesta.datos;
-      // 🔥 Guardamos en sessionStorage
       sessionStorage.setItem(TOKEN_KEY, token);
       sessionStorage.setItem(USUARIO_KEY, JSON.stringify(datos));
       setUsuario(datos);
@@ -45,7 +43,6 @@ export const AutenticacionProveedor = ({ children }) => {
   };
 
   const cerrarSesion = () => {
-    // 🔥 Limpiamos solo el sessionStorage de esta pestaña
     sessionStorage.removeItem(TOKEN_KEY);
     sessionStorage.removeItem(USUARIO_KEY);
     setUsuario(null);
@@ -53,7 +50,12 @@ export const AutenticacionProveedor = ({ children }) => {
 
   return (
     <AutenticacionContexto.Provider value={{
-      usuario, cargando, login, registro, cerrarSesion,
+      usuario, 
+      setUsuario, // 🔥 AQUÍ ESTÁ LA CLAVE: Exponemos el setter
+      cargando, 
+      login, 
+      registro, 
+      cerrarSesion,
       estaAutenticado: !!usuario,
       esTecnico: usuario?.esTecnico || false,
       esAdmin: usuario?.rol === 'ADMIN',
